@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Mapa de reportes</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="reportes.css" />
+  <link rel="stylesheet" href="components/header.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css"/>
+<script src="https://unpkg.com/leaflet-geosearch@3.0.0/dist/bundle.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    #mapReportes { height: 400px; margin-bottom: 15px; }
+    .card {
+      background: #fff;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    body{
+      margin: 0px !important;
+      padding: 0px !important;
+      background-color:#000;
+
+    }
+  </style>
+</head>
+<body>
+  <h2>🗺️ Zonas reportadas</h2>
+
+<div id="mapReportes" style="height: 500px; position: relative;">
+  <div id="mapOverlay"></div>
+</div>
+
+<div id="listaReportes"></div>
+
+
+
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-messaging-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+
+<!-- (opcional) Messaging si luego quieres notificaciones -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-messaging-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="firebase-notifications.js"></script>
+  <script src="scriptReportes.js"></script>
+  <script src="js/loadLayout.js"></script>
+<script src="auth-check.js"></script>
+
+</body>
+</html>

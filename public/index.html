@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mujer Segura - Bienvenida</title>
+  
+  <link rel="stylesheet" href="header.css"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff3366, #ff6699);
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      text-decoration: none;
+      color: white;
+    }
+
+    .btn-registro {
+      background-color: #00bcd4;
+    }
+
+    .btn-registro:hover {
+      background-color: #00a2c4;
+    }
+
+    .btn-login {
+      background-color: #ff3366;
+    }
+
+    .btn-login:hover {
+      background-color: #ff6699;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.9em;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bienvenida a Mujer Segura</h1>
+  <p>Protege tu seguridad y reporta cualquier situación sospechosa.</p>
+
+  <a href="registro.html" class="btn btn-registro">Registrarse</a>
+  <a href="login.html" class="btn btn-login">Ingresar</a>
+
+  <footer>© 2025 Mujer Segura</footer>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-messaging-compat.js"></script>
+
+<!-- Tu configuración -->
+<script src="firebase-config.js"></script>
+
+<script src="/firebase-notifications.js"></script>
+
+</body>
+</html>

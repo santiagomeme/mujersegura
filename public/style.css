@@ -1,0 +1,124 @@
+/* ==== ESTILO GENERAL ==== */
+html, body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #333;
+  margin: 0;
+  padding: 0px;
+}
+
+
+
+/* ==== FORMULARIO ==== */
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+select,
+input,
+textarea {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1em;
+  width: 100%;
+}
+
+    /* --- Ajuste del mapa y del overlay --- */
+    #map {
+      height: 400px;
+      width: 100%;
+      border-radius: 10px;
+      border: 2px solid #00bcd4;
+      position: relative;
+    }
+
+    #map-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 0, 0, 0.1);
+      z-index: 500;
+      pointer-events: auto; /* inicia bloqueado */
+      transition: background-color 0.3s ease;
+    }
+
+    .leaflet-control-lock {
+      background: #222;
+      color: white;
+      border: 1px solid #555;
+      border-radius: 6px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+.leaflet-control-lock:hover {
+  background: #00bcd4;
+  color: black;
+}
+
+/* ==== BOTÓN FORMULARIO ==== */
+button {
+  background-color: #ff3366;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: #ff6699;
+}
+
+/* ==== TARJETAS ==== */
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px auto;
+  max-width: 500px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  color: #ff3366;
+  margin-bottom: 5px;
+}
+
+
+/* Quita el borde y espacio del contenedor del botón Leaflet */
+.leaflet-bar {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Asegura que el botón quede bien alineado */
+.leaflet-control-lock {
+  margin: 0 !important;
+  border-top: none !important;
+  border-radius: 6px !important;
+}
+
+
+.blog-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}

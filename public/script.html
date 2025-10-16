@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reportar caso</title>
+
+  <!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- Leaflet GeoSearch -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.7.0/dist/geosearch.css" />
+<script src="https://unpkg.com/leaflet-geosearch@3.7.0/dist/geosearch.umd.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css"/>
+
+  <!-- ✅ Estilos -->
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="components/header.css"/>
+</head>
+
+<body>
+
+<h2>Formulario de Reporte</h2>
+
+<form id="reporteForm">
+  <label for="tipo">Tipo de maltrato:</label>
+  <select id="tipo" required>
+    <option value="">Seleccione...</option>
+    <option value="Físico">Físico</option>
+    <option value="Psicológico">Psicológico</option>
+    <option value="Económico">Económico</option>
+    <option value="Otro">Otro</option>
+  </select>
+
+  <label for="fecha">Fecha:</label>
+  <input type="date" id="fecha" required>
+
+  <label for="descripcion">Descripción:</label>
+  <textarea id="descripcion" required></textarea>
+
+  <label for="direccion">Dirección (opcional):</label>
+  <input type="text" id="direccion">
+  <button type="button" id="buscarDireccion">🔍 Buscar dirección</button>
+
+  <!-- 🔹 Nuevo campo de Ciudad -->
+  <label for="ciudad">Ciudad / Corregimiento / Pueblo:</label>
+  <input type="text" id="ciudad" placeholder="Ej. Cali, Jamundí, Palmira..." required>
+
+  <div id="map">
+    <div id="map-overlay"></div>
+  </div>
+
+  <button type="submit">Enviar Reporte</button>
+</form>
+
+
+  <!-- ✅ Scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-messaging-compat.js"></script>
+
+
+  <!-- ✅ Configuración y scripts personalizados -->
+  <script src="firebase-config.js"></script>
+  <script src="script.js"></script>
+  <script src="firestore-save.js"></script>
+  <script src="js/loadLayout.js"></script>
+  <script src="auth-check.js"></script>
+</body>
+</html>

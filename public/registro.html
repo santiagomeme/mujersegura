@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro - Mujer Segura</title>
+  <link rel="stylesheet" href="components/header.css"/>
+
+  <style>
+    form {
+      background: white;
+      color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 60%;
+      align-items: center;
+      margin: 0 auto;
+    }
+    input {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+    button {
+      padding: 10px;
+      background: #00bcd4;
+      border: none;
+      color: white;
+      font-size: 1em;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover { background: #00a2c4; }
+    a { color: #00bcd4; text-decoration: none; text-align: center; font-size: 0.9em; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header class="main-header">
+  <div class="logo">Mujer Segura</div>
+  <button class="menu-toggle" id="menuToggle">☰</button>
+  <nav class="menu" id="menu">
+    <a href="index.html">Inicio</a>
+    <a href="login.html">Iniciar Sesión</a>
+  </nav>
+</header>
+
+
+  <form id="registroForm">
+    <h2>Registrarse</h2>
+    <input type="email" id="email" placeholder="Correo electrónico" required>
+    <input type="password" id="password" placeholder="Contraseña" required>
+    <button type="submit">Crear cuenta</button>
+    <a href="login.html">¿Ya tienes cuenta? Ingresar</a>
+  </form>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-messaging-compat.js"></script>
+
+  <!-- ✅ Configuración -->
+  <script src="firebase-config.js"></script>
+
+  <script>
+    document.getElementById("registroForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      try {
+        // Crear usuario
+        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+        const user = userCredential.user;
+
+        // Guardar datos en Firestore
+        await db.collection("usuarios").doc(user.uid).set({
+          email: user.email,
+          fechaRegistro: new Date(),
+          rol: "usuario"
+        });
+
+        alert("✅ Registro exitoso");
+        window.location.href = "script.html";
+      } catch (error) {
+        alert("❌ Error: " + error.message);
+      }
+    });
+  </script>
+
+  <!-- ✅ Scripts adicionales -->
+  <script src="auth-check.js"></script>
+
+</body>
+</html>

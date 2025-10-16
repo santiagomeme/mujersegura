@@ -1,0 +1,70 @@
+
+/* ===== HEADER ===== */
+
+
+/* ===== HEADER ===== */
+.main-header {
+  background-color: #a2006d;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1001;
+}
+    body{
+      margin: 0px !important;
+      padding: 0px !important;
+
+    }
+.main-header .logo {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.menu {
+  display: none;
+  flex-direction: column;
+  background-color: #b3007f;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+}
+
+.menu a:hover {
+  background-color: #ff4fad;
+}
+
+.menu.active {
+  display: flex;
+}
+/* ===== FOOTER ===== */
+
+/* ===== FOOTER ===== */
+.main-footer {
+  background-color: #a2006d;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 40px;
+}

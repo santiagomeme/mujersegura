@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Mujer Segura</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="components/header.css"/>
+
+</head>
+<body>
+  <!-- Header -->
+  <div id="header"></div>
+
+  <main class="container">
+    <h1>Blog Mujer Segura 💬</h1>
+    <p>Lee historias, consejos y artículos sobre seguridad, derechos y empoderamiento femenino.</p>
+
+    <div id="blog-container" class="blog-container">
+      <!-- Los artículos se cargarán aquí dinámicamente -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <script>
+    // Simulación de artículos del blog (puedes cargar desde Firestore después)
+    const posts = [
+      {
+        titulo: "Cómo actuar ante una situación de acoso",
+        fecha: "9 de octubre de 2025",
+        resumen: "Aprende los pasos básicos para mantener la calma y denunciar de forma segura.",
+      },
+      {
+        titulo: "Centros de ayuda para mujeres en Colombia",
+        fecha: "3 de octubre de 2025",
+        resumen: "Conoce los lugares donde puedes recibir acompañamiento y asesoría gratuita.",
+      },
+      {
+        titulo: "Aplicaciones que te ayudan a mantenerte segura",
+        fecha: "20 de septiembre de 2025",
+        resumen: "Exploramos apps diseñadas para enviar alertas, compartir tu ubicación y más.",
+      }
+    ];
+
+    const contenedor = document.getElementById("blog-container");
+    posts.forEach(p => {
+      const div = document.createElement("div");
+      div.classList.add("card");
+      div.innerHTML = `
+        <h3>${p.titulo}</h3>
+        <p><b>${p.fecha}</b></p>
+        <p>${p.resumen}</p>
+        <button onclick="alert('Próximamente: leer más del artículo.')">Leer más</button>
+      `;
+      contenedor.appendChild(div);
+    });
+  </script>
+
+  
+
+  <!-- 🚫 Firebase (descomenta solo cuando lo necesites en hosting) -->
+<!-- Firebase App (núcleo) -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+
+<!-- Firebase Authentication -->
+
+<!-- Firestore (si lo usas) -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+
+<!-- (opcional) Messaging si luego quieres notificaciones -->
+<script src="firebase-config.js"></script>
+<script src="/js/auth-check.js"></script>
+  <script src="js/loadLayout.js"></script>
+</body>
+</html>

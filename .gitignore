@@ -69,5 +69,5 @@ node_modules/
 .dataconnect
 
 # 🔒 Archivos de credenciales y configuración privada
-*.json
+#*.json
 config/*.json

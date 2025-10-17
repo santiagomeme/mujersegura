@@ -69,5 +69,8 @@ node_modules/
 .dataconnect
 
 # 🔒 Archivos de credenciales y configuración privada
-*.json
 config/*.json
+
+# No ignores package.json ni package-lock.json
+!package.json
+!package-lock.json

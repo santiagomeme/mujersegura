@@ -56,3 +56,15 @@ if (firebase.messaging.isSupported()) {
     new Notification(title, { body, icon: icon || '/icon.png' });
   });
 }
+
+
+
+// Suscribir token al tema "alertas"
+fetch("https://mujersegura.onrender.com/api/suscribir", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ token }),
+})
+  .then((res) => res.json())
+  .then((data) => console.log("📢 Suscripción al tema:", data))
+  .catch((err) => console.error("❌ Error al suscribir token:", err));

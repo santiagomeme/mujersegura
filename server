@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // === Inicializar Firebase Admin ===
-const serviceAccount = require("./serviceAccountKey.json");
+const serviceAccount = JSON.parse(process.env.FIREBASE_ACCOUNT_KEY);
 
 if (!admin.apps.length) {
   admin.initializeApp({
@@ -41,4 +41,17 @@ app.post("/api/enviarNotificacion", async (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en puerto ${PORT}`);
+});
+
+
+// === Suscribir token al tema ===
+app.post("/api/suscribir", async (req, res) => {
+  const { token } = req.body;
+  try {
+    await admin.messaging().subscribeToTopic(token, "alertas");
+    res.json({ success: true, message: "Token suscrito al tema alertas" });
+  } catch (error) {
+    console.error("❌ Error al suscribir token:", error);
+    res.status(500).json({ success: false, error: error.message });
+  }
 });

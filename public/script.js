@@ -180,13 +180,12 @@ form.addEventListener("submit", async (e) => {
 async function enviarNotificacionGlobal(mensaje) {
   try {
     // 🔹 Esta URL apunta a tu servidor local o desplegado (Node con firebase-admin)
-   const response = await fetch("https://mujersegura.onrender.com/api/enviarNotificacion", {
+const response = await fetch("https://mujersegura.onrender.com/api/enviarNotificacion", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(mensaje),
+});
 
-
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(mensaje),
-    });
 
     const data = await response.json();
     if (data.success) {
